@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasapalabra Infantil — Rosco fácil de la A a la Z</title>
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <div class="container">
+        <header class="header">
+          <img src="images/logo.svg" alt="Pasapalabra Infantil" class="header-logo" />
+          <h1>Pasapalabra Infantil</h1>
+          <p class="subtitle">Adivina las palabras de la A a la Z con pistas muy fáciles.</p>
+        </header>
+
+        <div class="game-layout">
+          <div class="rosco" id="rosco" aria-label="Rosco de letras">
+            <div class="rosco-center" id="rosco-center">
+              <span class="rosco-label" id="rosco-label">Letra actual</span>
+              <span class="rosco-active-letter" id="rosco-active-letter">A</span>
+              <span class="rosco-finished-title hidden" id="rosco-finished-title">¡Fin del rosco!</span>
+
+              <div class="scores">
+                <span class="score score-correct" id="score-correct">0 bien</span>
+                <span class="score score-wrong" id="score-wrong">0 mal</span>
+                <span class="score score-pending" id="score-pending">27 faltan</span>
+              </div>
+            </div>
+          </div>
+
+          <section class="card" aria-live="polite">
+            <div id="play-panel" class="panel">
+              <div>
+                <p class="clue-mode" id="clue-mode">Empieza por la A</p>
+                <p class="clue-text" id="clue-text"></p>
+              </div>
+
+              <form id="answer-form" class="answer-form">
+                <label for="rosco-answer" class="sr-only">Tu respuesta</label>
+                <input
+                  id="rosco-answer"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Escribe aquí la palabra..."
+                  class="answer-input"
+                />
+
+                <div class="actions">
+                  <button type="submit" class="btn btn-primary">Comprobar</button>
+                  <button type="button" id="pass-btn" class="btn btn-secondary">Pasapalabra</button>
+                </div>
+              </form>
+
+              <p id="feedback" role="status" class="feedback hidden"></p>
+            </div>
+
+            <div id="end-panel" class="panel end-panel hidden">
+              <h2>¡Rosco completado!</h2>
+              <p class="end-summary">
+                Has acertado <strong class="text-correct" id="final-correct">0</strong> de
+                <strong id="final-total">27</strong> palabras.
+              </p>
+              <button type="button" id="restart-btn" class="btn btn-primary btn-full">
+                Jugar otra vez
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
